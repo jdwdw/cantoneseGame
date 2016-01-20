@@ -9,7 +9,7 @@
 #import "GHWalkThroughPageCell.h"
 //#import "ViewController.h"
 #import "AppDelegate.h"
-
+#import "config.h"
 
 
 @interface GHWalkThroughPageCell ()
@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UILabel* titleLabel;
 @property (nonatomic, strong) UITextView* descLabel;
 @property (nonatomic, strong) UIImageView* titleImageView;
+@property (nonatomic,assign) int theMaxIndex;
 
 
 //@property (nonatomic,strong) UIButton *button1;
@@ -33,6 +34,7 @@
         [self applyDefaults];
         [self buildUI];
 //        [self buildButton];
+       self.theMaxIndex=(int)[[NSUserDefaults standardUserDefaults]integerForKey:maxIndex];
     }
     return self;
 }
@@ -131,7 +133,7 @@
     UIView *pageView = [[UIView alloc] initWithFrame:self.contentView.bounds];
     
     if (self.titleImageView == nil) {
-        UIImageView *titleImageView = self.titleImage != nil ? [[UIImageView alloc] initWithImage:self.titleImage] : [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 128, 128)];
+        UIImageView *titleImageView = self.titleImage != nil ? [[UIImageView alloc] initWithImage:self.titleImage] : [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth/4*3, kScreenWidth/4*3)];
         self.titleImageView = titleImageView;
     }
     [pageView addSubview:self.titleImageView];
@@ -183,13 +185,13 @@
    // }
     
     
-    
-    
+    UIImage *unlock = [UIImage imageNamed:@"unlock.png"];
+    UIImage *lock = [UIImage imageNamed:@"lock.png"];
     
     // init and draw nodes, add reference to array
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
-    int border = screenRect.size.width / 10 * 3; // 30 percent outside border: edge to center of outside tile
+    int border = screenRect.size.width / 4*1; // 30 percent outside border: edge to center of outside tile
     int totalBorder = border * 2;
     int useableArea = screenRect.size.width - totalBorder;
     int columns = 3;
@@ -206,13 +208,22 @@
 //        menuBtn.name = [NSString stringWithFormat:@"%i", i + 1];
 //        [nodes addObject:menuBtn];
         UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button1.frame=CGRectMake(10, 10, 30, 30);
+        button1.frame=CGRectMake(10, 10, kScreenWidth/5, kScreenWidth/5);
         button1.center=CGPointMake(startPoint, screenRect.size.height/10 * 3.5);
-        button1.backgroundColor=[UIColor redColor];
+        button1.backgroundColor=[UIColor clearColor];
         button1.tag=self.buttonTag+i;
+        button1.titleLabel.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:kScreenWidth/8 ];
         [button1 addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         NSString *button1Title =[NSString stringWithFormat: @"%ld", (long)self.buttonTag+i];
-        [button1 setTitle:button1Title forState:UIControlStateNormal];
+        
+        if (button1.tag<=self.theMaxIndex) {
+            [button1 setBackgroundImage:unlock forState:UIControlStateNormal ];
+            [button1 setTitle:button1Title forState:UIControlStateNormal];
+        }else{
+            [button1 setBackgroundImage:lock forState:UIControlStateNormal ];
+        }
+        
+        //[button1 setTitle:button1Title forState:UIControlStateNormal];
         //  self.button1=button1;
         [self.contentView addSubview:button1];
         
@@ -230,13 +241,22 @@
 //        menuBtn.name = [NSString stringWithFormat:@"%i", i + 1 + 3];
 //        [nodes addObject:menuBtn];
         UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button1.frame=CGRectMake(10, 10, 30, 30);
+        button1.frame=CGRectMake(10, 10, kScreenWidth/5, kScreenWidth/5);
         button1.center=CGPointMake(startPoint, screenRect.size.height/10 * 5);
-        button1.backgroundColor=[UIColor redColor];
+        button1.backgroundColor=[UIColor clearColor];
         button1.tag=self.buttonTag+i+3;
+        button1.titleLabel.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:kScreenWidth/8 ];
         [button1 addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         NSString *button1Title =[NSString stringWithFormat: @"%ld", (long)self.buttonTag+i+3];
-        [button1 setTitle:button1Title forState:UIControlStateNormal];
+        
+        if (button1.tag<=self.theMaxIndex) {
+            [button1 setBackgroundImage:unlock forState:UIControlStateNormal ];
+            [button1 setTitle:button1Title forState:UIControlStateNormal];
+        }else{
+            [button1 setBackgroundImage:lock forState:UIControlStateNormal ];
+        }
+        
+        //[button1 setTitle:button1Title forState:UIControlStateNormal];
         //  self.button1=button1;
         [self.contentView addSubview:button1];
         
@@ -254,13 +274,20 @@
 //        menuBtn.name = [NSString stringWithFormat:@"%i", i + 1 + 6];
 //        [nodes addObject:menuBtn];
         UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button1.frame=CGRectMake(10, 10, 30, 30);
+        button1.frame=CGRectMake(10, 10, kScreenWidth/5, kScreenWidth/5);
         button1.center=CGPointMake(startPoint, screenRect.size.height/10 * 6.5);
-        button1.backgroundColor=[UIColor redColor];
+        button1.backgroundColor=[UIColor clearColor];
         button1.tag=self.buttonTag+i+6;
+        button1.titleLabel.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:kScreenWidth/8 ];
         [button1 addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         NSString *button1Title =[NSString stringWithFormat: @"%ld", (long)self.buttonTag+i+6];
-        [button1 setTitle:button1Title forState:UIControlStateNormal];
+        if (button1.tag<=self.theMaxIndex) {
+            [button1 setBackgroundImage:unlock forState:UIControlStateNormal ];
+            [button1 setTitle:button1Title forState:UIControlStateNormal];
+        }else{
+            [button1 setBackgroundImage:lock forState:UIControlStateNormal ];
+        }
+       // [button1 setTitle:button1Title forState:UIControlStateNormal];
         //  self.button1=button1;
         [self.contentView addSubview:button1];
         
@@ -283,9 +310,17 @@
     
     
     //获取navigationController来push GameController进去
-    AppDelegate *appDelegate=[[UIApplication sharedApplication] delegate];
-    [(UINavigationController *)appDelegate.window.rootViewController pushViewController:testviewController animated:YES];
-    NSLog(@"%@",appDelegate.window.rootViewController);
+    if (sender.tag<=self.theMaxIndex) {
+        AppDelegate *appDelegate=[[UIApplication sharedApplication] delegate];
+        [(UINavigationController *)appDelegate.window.rootViewController pushViewController:testviewController animated:YES];
+        NSLog(@"%@",appDelegate.window.rootViewController);
+    }
+//    AppDelegate *appDelegate=[[UIApplication sharedApplication] delegate];
+//    [(UINavigationController *)appDelegate.window.rootViewController pushViewController:testviewController animated:YES];
+//    NSLog(@"%@",appDelegate.window.rootViewController);
+    else{
+        NSLog(@"you can't get into it because you not break in");
+    }
     
 
 //    [UIView animateWithDuration:0.3 animations:^{

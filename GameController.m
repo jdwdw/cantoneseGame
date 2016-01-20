@@ -31,6 +31,7 @@
     PopupOutgoingTransitionType outgoingType;
     
     Popup *popper;
+    
 }
 
 @end
@@ -82,12 +83,12 @@
 //fetches a random anagram, deals the letter tiles and creates the targets
 -(void)dealWithNum:(int)num
 {
-    
    //设置popview的弹出，回收等属性
     blurType=PopupBackGroundBlurTypeNone;
     incomingType=PopupIncomingTransitionTypeFallWithGravity;
     outgoingType=PopupOutgoingTransitionTypeFallWithGravity;
     
+    //用于判断的设备是iPad 还是iphone
     NSLog(@"oo");
     NSString *  nsStrIphone=@"iPhone";
     NSString *  nsStrIpod=@"iPod";
@@ -198,6 +199,26 @@
     [self.gameView addSubview: self.btnHelp];
     
     
+    //getTipsbutton
+    UIImage* getAnswersButtonImage = [UIImage imageNamed:@"btn"];
+    
+    
+    //the help button
+    self.getAnswersButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.getAnswersButton setTitle:@"" forState:UIControlStateNormal];
+    self.getAnswersButton.titleLabel.font = [UIFont fontWithName:@"comic andy" size:50.0];
+    [self.getAnswersButton setBackgroundImage:getAnswersButtonImage forState:UIControlStateNormal];
+    if (bIsiPad) {
+        self.getAnswersButton.frame = CGRectMake(2*kTileMargin+getAnswersButtonImage.size.width/getAnswersButtonImage.size.height*tileSide1,  kScreenHeight/3*2-tileSide1*3-tileSide1/2-5, getAnswersButtonImage.size.width/getAnswersButtonImage.size.height*tileSide1, getAnswersButtonImage.size.height/getAnswersButtonImage.size.height*tileSide1);
+    }else{
+        self.getAnswersButton.frame = CGRectMake(2*kTileMargin+getAnswersButtonImage.size.width/getAnswersButtonImage.size.height*tileSide1,  kScreenHeight/3*2-tileSide1*5, getAnswersButtonImage.size.width/getAnswersButtonImage.size.height*tileSide1, getAnswersButtonImage.size.height/getAnswersButtonImage.size.height*tileSide1);
+    }
+    //self.btnHelp.center=CGPointMake(kTileMargin, kScreenHeight/3*2-tileSide1*3);
+    self.getAnswersButton.alpha = 0.7;
+    
+    [self.getAnswersButton addTarget:self action:@selector(getAnswers:) forControlEvents:UIControlEventTouchUpInside];
+    [self.gameView addSubview: self.getAnswersButton];
+    
   
   //start the timer
  // [self startStopwatch];
@@ -232,6 +253,9 @@
     [self showPopper];
 }
 
+-(void)getAnswers:(id)sender{
+    self.getAnswersAnagram();
+}
 
 //a tile was dragged, check if matches a target
 -(void)tileView:(TileView*)tileView didDragToPoint:(CGPoint)pt
@@ -351,7 +375,10 @@
   StarDustView* stars = [[StarDustView alloc] initWithFrame:CGRectMake(startX, startY, 10, 10)];
   [self.gameView addSubview:stars];
   [self.gameView sendSubviewToBack:stars];
-  
+    
+
+   
+    
   [UIView animateWithDuration:3
                         delay:0
                       options:UIViewAnimationOptionCurveEaseOut
@@ -410,52 +437,53 @@
 //}
 
 //the user pressed the hint button
-//-(void)actionHint
-//{
-//  self.hud.btnHelp.enabled = NO;
-//  
-//  //self.data.points -= self.level.pointsPerTile/2;
-//  [self.hud.gamePoints countTo: self.data.points withDuration: 1.5];
-//
-//  // find the first target, not matched yet
-//  TargetView* target = nil;
-//  for (TargetView* t in _targets) {
-//    if (t.isMatched==NO) {
-//      target = t;
-//      break;
-//    }
-//  }
-//  
-//  // find the first tile, matching the target
-//  TileView* tile = nil;
-//  for (TileView* t in _tiles) {
-//    if (t.isMatched==NO && [t.letter isEqualToString:target.letter]) {
-//      tile = t;
-//      break;
-//    }
-//  }
-//
-//  // don't want the tile sliding under other tiles
-//  [self.gameView bringSubviewToFront:tile];
-//  
-//  //show the animation to the user
-//  [UIView animateWithDuration:1.5
-//                        delay:0
-//                      options:UIViewAnimationOptionCurveEaseOut
-//                   animations:^{
-//                     tile.center = target.center;
-//                   } completion:^(BOOL finished) {
-//                     // adjust view on spot
-//                     [self placeTile:tile atTarget:target];
-//                     
-//                     // check for finished game
-//                     [self checkForSuccess];
-//                     
-//                     // re-enable the button
-//                     self.hud.btnHelp.enabled = YES;
-//                   }];
-//
-//}
+//按看广告要答案时候调用的方法
+-(void)actionHint
+{
+  //self.hud.btnHelp.enabled = NO;
+  
+  //self.data.points -= self.level.pointsPerTile/2;
+  //[self.hud.gamePoints countTo: self.data.points withDuration: 1.5];
+
+  // find the first target, not matched yet
+  TargetView* target = nil;
+  for (TargetView* t in _targets) {
+    if (t.isMatched==NO) {
+      target = t;
+      break;
+    }
+  }
+  
+  // find the first tile, matching the target
+  TileView* tile = nil;
+  for (TileView* t in _tiles) {
+    if (t.isMatched==NO && [t.letter isEqualToString:target.letter]) {
+      tile = t;
+      break;
+    }
+  }
+
+  // don't want the tile sliding under other tiles
+  [self.gameView bringSubviewToFront:tile];
+  
+  //show the animation to the user
+  [UIView animateWithDuration:1.5
+                        delay:0
+                      options:UIViewAnimationOptionCurveEaseOut
+                   animations:^{
+                     tile.center = target.center;
+                   } completion:^(BOOL finished) {
+                     // adjust view on spot
+                     [self placeTile:tile atTarget:target];
+                     
+                     // check for finished game
+                     [self checkForSuccess];
+                     
+                     // re-enable the button
+                    // self.hud.btnHelp.enabled = YES;
+                   }];
+
+}
 
 //clear the tiles and targets
 -(void)clearBoard
@@ -507,6 +535,7 @@
     }
     else if (buttonType == PopupButtonOk) {
         NSLog(@"popupPressButton - PopupButtonOk");
+        //[self actionHint];
     }
     else if (buttonType == PopupButtonVoice) {
         NSLog(@"popupPressButton - PopupButtonVoic");

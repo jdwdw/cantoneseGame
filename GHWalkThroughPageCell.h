@@ -29,6 +29,7 @@
 
 
 @property (nonatomic,assign)NSInteger buttonTag;
+-(void)buildButton;
 
 
 @end

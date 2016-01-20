@@ -33,10 +33,15 @@ typedef void (^CallbackBlock)();
 
 @property(strong,nonatomic ) CallbackBlock wrongAnagram;
 
+@property(strong,nonatomic ) CallbackBlock getAnswersAnagram;
 
 @property (strong, nonatomic) UIButton* btnHelp;
 
+@property (strong,nonatomic)UIButton *getAnswersButton;
+
 //display a new anagram on the screen
 -(void)dealWithNum:(int)num;
+
+-(void)actionHint;
 
 @end

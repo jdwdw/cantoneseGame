@@ -32,8 +32,10 @@ typedef NS_ENUM(NSInteger, GHWalkThroughViewDirection) {
 @property (nonatomic, strong) UIImage* bgImage;
 
 @property (nonatomic, copy) NSString *closeTitle;
+@property (nonatomic, strong) UICollectionView* collectionView;
 
 - (void) showInView:(UIView*) view animateDuration:(CGFloat) duration;
+-(void)setup;
 
 @end
 

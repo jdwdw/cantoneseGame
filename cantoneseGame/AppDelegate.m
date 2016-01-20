@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "config.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +24,10 @@
 //    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller] ;
 //    navigationController.viewControllers=@[controller ];
 //    self.window.rootViewController = navigationController;
+    
+    
+    NSDictionary *dictionary=@{maxIndex: @1,presenceCell:@0};
+    [[NSUserDefaults standardUserDefaults]registerDefaults:dictionary];
     
     return YES;
 }

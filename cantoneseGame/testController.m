@@ -13,6 +13,7 @@
 //#import "HUDView.h"
 #import "Popup.h"
 #import <AVFoundation/AVFoundation.h>
+#import "config.h"
 
 //@implementation testController
 //
@@ -143,6 +144,11 @@
     self.controller.onAnagramSolved = ^(){
        // [weakSelf showLevel];
         //再加上有下一题的弹窗
+        int theMaxIndex=(int)[[NSUserDefaults standardUserDefaults]integerForKey:maxIndex];
+        int recentIndex=self.index+1;
+        if (recentIndex>theMaxIndex) {
+            [[NSUserDefaults standardUserDefaults]setInteger:recentIndex forKey:maxIndex];
+        }
         [weakSelf showPopper];
          //[interstitial presentFromRootViewController:self];
     };
@@ -152,13 +158,21 @@
         // [interstitial presentFromRootViewController:self];
         
     };
+    
+    self.controller.getAnswersAnagram=^(){
+        [weakSelf showTipsPopper];
+        // [interstitial presentFromRootViewController:self];
+        
+    };
+    
+      [self showLevel];
 }
 
 //show tha game menu on app start
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self showLevel];
+    //[self showLevel];
 }
 
 #pragma mark - Game manu
@@ -303,6 +317,28 @@
     
 }
 
+-(void)showTipsPopper{
+    NSString *tile=@"获取信息";
+    NSString *subTitle=@"如果你同意收看广告的话，按YES按钮可以获取一个正确的字。如果不同意按NO按钮退出。";
+    
+    popper=[[Popup alloc]initWithTitle:tile subTitle:subTitle cancelTitle:@"NO" successTitle:@"YES"];
+//         popper=[[Popup alloc]initWithTitle:tile subTitle:subTitle haveOkButton:YES haveBackButton:NO haveVoiceButton:NO haveNextButton:NO haveRenewButton:NO];
+    [popper setDelegate:self];
+    [popper setBackgroundBlurType:blurType];
+    [popper setIncomingTransition:incomingType];
+    [popper setOutgoingTransition:outgoingType];
+    [popper setRoundedCorners:YES];
+    [popper showPopup];
+    
+    
+//    //加广告
+//    if ( arc4random()%3==1) {
+//        [self loadAD];
+//    }
+    
+}
+
+
 - (void)popupWillAppear:(Popup *)popup {
 }
 
@@ -321,11 +357,16 @@
         NSLog(@"popupPressButton - PopupButtonCancel");
     }
     else if (buttonType == PopupButtonSuccess) {
-        NSLog(@"popupPressButton - PopupButtonSuccess");
+       
+        [self.controller   actionHint ];
+        //加一个延时先获取正确答案的动画输出一遍
+        [self performSelector:@selector(loadAD) withObject:nil afterDelay:3.0f];
+        
     }
     else if (buttonType == PopupButtonOk) {
         NSLog(@"popupPressButton - PopupButtonOk");
-      [self.navigationController popToRootViewControllerAnimated:YES];
+        
+        //[self loadAD];
     }
     else if (buttonType == PopupButtonVoice) {
         NSLog(@"popupPressButton - PopupButtonVoice");

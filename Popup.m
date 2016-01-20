@@ -188,7 +188,7 @@ BOOL isBlurSet = YES;
             blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
             break;
         case PopupBackGroundBlurTypeNone:
-            return;
+            //return;
             break;
         default:
             break;
@@ -200,7 +200,16 @@ BOOL isBlurSet = YES;
     [visualEffectView setFrame:backgroundView.bounds];
     [backgroundView addSubview:visualEffectView];
     
+
+    
     [backgroundView setAlpha:0.0];
+        //只在无背景图时候点击背景等于取消
+    if (blurType==PopupBackGroundBlurTypeNone) {
+        [backgroundView addGestureRecognizer:
+         [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                 action:@selector(dismissPopup:)]];
+    }
+
     
     [self insertSubview:backgroundView belowSubview:popupView];
 }
@@ -704,7 +713,7 @@ BOOL isBlurSet = YES;
         [self.delegate dictionary:[self createDictionaryForTextfields] forpopup:self stringsFromTextFields:[self arrayForStringOfTextfields]];
     }
     
-    if ([button isEqual:nextButton]||[button isEqual:okButton]||[button isEqual:backButton]||[button isEqual:renewButton]) {
+    if ([button isEqual:nextButton]||[button isEqual:okButton]||[button isEqual:backButton]||[button isEqual:renewButton]||[button isEqual:successBtn] ||[button isEqual:cancelBtn]) {
         [self dismissPopup:buttonType];
     }
     

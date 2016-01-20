@@ -10,7 +10,7 @@
 
 @interface GHWalkThroughView ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic, strong) UICollectionView* collectionView;
+//@property (nonatomic, strong) UICollectionView* collectionView;
 @property (nonatomic, strong) UIImageView* bgFrontLayer;
 @property (nonatomic, strong) UIImageView* bgBackLayer;
 
@@ -61,6 +61,10 @@
     self.collectionView.delegate = self;
     [self.collectionView registerClass:[GHWalkThroughPageCell class] forCellWithReuseIdentifier:@"cellIdentifier"];
     [self.collectionView setPagingEnabled:YES];
+   // _collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0); // 向上偏移20;
+
+    
+
     [self addSubview:_collectionView];
     
     [self buildFooterView];
@@ -147,8 +151,8 @@
     self.skipButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [self.skipButton setTitle:@"Skip" forState:UIControlStateNormal];
     [self.skipButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.skipButton addTarget:self action:@selector(skipIntroduction) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:self.skipButton];
+    //[self.skipButton addTarget:self action:@selector(skipIntroduction) forControlEvents:UIControlEventTouchUpInside];
+   // [self addSubview:self.skipButton];
     [self bringSubviewToFront:self.skipButton]; 
 }
 
@@ -170,6 +174,7 @@
 - (void) showPanelAtPageControl:(UIPageControl*) sender
 {
     [self.pageControl setCurrentPage:sender.currentPage];
+   // [[NSUserDefaults standardUserDefaults]setInteger:sender.currentPage forKey:@"presenceCell"];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -195,15 +200,19 @@
     
 }
 
+
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return self.bounds.size;
 }
 
 - (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-//    if ([self.dataSource respondsToSelector:@selector(bgImageforPage:)]) {
-//        self.bgFrontLayer.image = [self.dataSource bgImageforPage:self.pageControl.currentPage];
-//    }
+    if ([self.dataSource respondsToSelector:@selector(bgImageforPage:)]) {
+        self.bgFrontLayer.image = [self.dataSource bgImageforPage:self.pageControl.currentPage];
+    }
+   // [self.collectionView reloadData];
+    [[NSUserDefaults standardUserDefaults]setInteger:self.pageControl.currentPage forKey:@"presenceCell"];
+    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
