@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "config.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -24,7 +25,7 @@
 //    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller] ;
 //    navigationController.viewControllers=@[controller ];
 //    self.window.rootViewController = navigationController;
-    
+     [WXApi registerApp:@"wx9b3f6e3350721348"];
     
     NSDictionary *dictionary=@{maxIndex: @1,presenceCell:@0};
     [[NSUserDefaults standardUserDefaults]registerDefaults:dictionary];
@@ -53,5 +54,13 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [WXApi handleOpenURL:url delegate:self];
+}
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [WXApi handleOpenURL:url delegate:self];
+}
 @end

@@ -14,6 +14,7 @@
 #import "Popup.h"
 #import <AVFoundation/AVFoundation.h>
 #import "config.h"
+#import "WeixinActivity.h"
 
 //@implementation testController
 //
@@ -77,6 +78,7 @@
     AVAudioPlayer *player;
     
     //GADInterstitial *interstitial;
+    NSArray *activity;
     
 }
 @property (strong, nonatomic) GameController* controller;
@@ -100,6 +102,19 @@
 {
     [super viewDidLoad];
     
+
+ activity = @[[[WeixinSessionActivity alloc] init], [[WeixinTimelineActivity alloc] init]];
+    
+    NSArray *imageList = @[[UIImage imageNamed:@"shareButtonImage.png"], [UIImage imageNamed:@"borderButtonImage.png"], [UIImage imageNamed:@"menuClose.png"], [UIImage imageNamed:@"menuClose.png"]];
+    sideBar = [[CDSideBarController alloc] initWithImages:imageList];
+    sideBar.delegate = self;
+    
+    
+    
+    
+    
+    
+    
     _interstitial = [[GADInterstitial alloc]initWithAdUnitID:@"ca-app-pub-7330443893787901/1391670676"];
     [_interstitial loadRequest:[GADRequest request]];
     
@@ -118,19 +133,27 @@
     //add one layer for all game elements
     UIView* gameLayer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     
+
+    NSString *backgroundImageName=[NSString stringWithFormat:@"background%d.png",arc4random()%11 ];
+   // NSString *backgroundImageName=[NSString stringWithFormat:@"background11.png" ];
+    
+    UIColor *bgColor = [UIColor colorWithPatternImage: [UIImage imageNamed:backgroundImageName]];
+    //[self.view setBackgroundColor:bgColor];
+    gameLayer.backgroundColor=bgColor;
+    
     NSLog(@"%f",kScreenWidth);
     NSLog(@"%f",kScreenHeight);
     [self.view addSubview: gameLayer];
     
     self.controller.gameView = gameLayer;
     
-        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        backButton.frame=CGRectMake(10, 10, 30, 30);
-        backButton.center=CGPointMake(100, 100);
-        backButton.backgroundColor=[UIColor blueColor];
-        //UIButton *backButton=[[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
-        [backButton addTarget:self action:@selector(backTo:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:backButton];
+//        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        backButton.frame=CGRectMake(10, 10, 30, 30);
+//        backButton.center=CGPointMake(100, 100);
+//        backButton.backgroundColor=[UIColor blueColor];
+//        //UIButton *backButton=[[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
+//        [backButton addTarget:self action:@selector(backTo:) forControlEvents:UIControlEventTouchUpInside];
+//        [self.view addSubview:backButton];
     
     
     
@@ -173,6 +196,7 @@
 {
     [super viewDidAppear:animated];
     //[self showLevel];
+    [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 70, 50)];
 }
 
 #pragma mark - Game manu
@@ -461,6 +485,62 @@
     _interstitial = [[GADInterstitial alloc]initWithAdUnitID:@"ca-app-pub-7330443893787901/1391670676"];
     [_interstitial loadRequest:[GADRequest request]];
     
+}
+
+
+- (void)menuButtonClicked:(int)index
+{
+    // Execute what ever you want
+    switch (index) {
+        case 0:
+            NSLog(@"0");
+            [self weChatShare];
+            [self becomeFirstResponder];
+            break;
+        case 1:
+            NSLog(@"1");
+            //            CGFloat score=[[NSUserDefaults standardUserDefaults] integerForKey:@"Score"];
+            //            NSLog(@"%f",score);
+            //[self showLeaderboard];
+            NSLog(@"Leaderboard");
+            break;
+        case 2:
+            NSLog(@"2");
+            
+//            BOOL musicOn=[[NSUserDefaults standardUserDefaults] boolForKey:@"music"];
+//            if (musicOn) {
+//                [[NSUserDefaults standardUserDefaults]setBool:false forKey:@"music"];
+//                [self.player stop];
+//            }else{
+//                [[NSUserDefaults standardUserDefaults]setBool:true forKey:@"music"];
+//                [self.player play];
+//            }
+            //[sideBar changetheimage];
+             break;
+        default:
+            break;
+    }
+}
+
+
+
+-(void)weChatShare{
+    NSString *tile = @"tile";
+    NSString *theUrl = @"https://itunes.apple.com/us/app/id1052713120?mt=8";
+    UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[tile, [UIImage imageNamed:@"background0.png"], [NSURL URLWithString:theUrl]] applicationActivities:activity];
+    activityView.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint];
+    //[self presentViewController:activityView animated:YES completion:nil];
+    
+    //if iPhone
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self presentViewController:activityView animated:YES completion:nil];
+    }
+    //if iPad
+    else {
+        // Change Rect to position Popover
+        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:activityView];
+        [popup presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/4, 0, 0)inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
 }
 
 @end

@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CDSideBarController.h"
 
-@interface testController : UIViewController
+@interface testController : UIViewController<CDSideBarControllerDelegate>{
+    CDSideBarController *sideBar;
+}
 @property (nonatomic,assign) int index;
 
 @end

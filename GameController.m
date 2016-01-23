@@ -184,8 +184,9 @@
     
     //the help button
     self.btnHelp = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.btnHelp setTitle:@"" forState:UIControlStateNormal];
-    self.btnHelp.titleLabel.font = [UIFont fontWithName:@"comic andy" size:50.0];
+    [self.btnHelp setTitle:@"Tips" forState:UIControlStateNormal];
+    self.btnHelp.titleLabel.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:kScreenWidth/8 ];
+    
     [self.btnHelp setBackgroundImage:image forState:UIControlStateNormal];
     if (bIsiPad) {
     self.btnHelp.frame = CGRectMake(kTileMargin,  kScreenHeight/3*2-tileSide1*3-tileSide1/2-5, image.size.width/image.size.height*tileSide1, image.size.height/image.size.height*tileSide1);
@@ -193,28 +194,38 @@
         self.btnHelp.frame = CGRectMake(kTileMargin,  kScreenHeight/3*2-tileSide1*5, image.size.width/image.size.height*tileSide1, image.size.height/image.size.height*tileSide1);
     }
     //self.btnHelp.center=CGPointMake(kTileMargin, kScreenHeight/3*2-tileSide1*3);
-    self.btnHelp.alpha = 0.7;
+    self.btnHelp.alpha = 0.9;
     
     [self.btnHelp addTarget:self action:@selector(getTips:) forControlEvents:UIControlEventTouchUpInside];
     [self.gameView addSubview: self.btnHelp];
     
     
     //getTipsbutton
-    UIImage* getAnswersButtonImage = [UIImage imageNamed:@"btn"];
+  //  UIImage* getAnswersButtonImage = [UIImage imageNamed:@"getHelpButton.png"];
     
     
     //the help button
     self.getAnswersButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.getAnswersButton setTitle:@"" forState:UIControlStateNormal];
-    self.getAnswersButton.titleLabel.font = [UIFont fontWithName:@"comic andy" size:50.0];
-    [self.getAnswersButton setBackgroundImage:getAnswersButtonImage forState:UIControlStateNormal];
+    [self.getAnswersButton setTitle:@"✇" forState:UIControlStateNormal];
+    self.getAnswersButton.titleLabel.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:kScreenWidth/7 ];
+    
+    self.getAnswersButton.backgroundColor=[UIColor redColor];
+    
+   // [self.getAnswersButton setBackgroundImage:getAnswersButtonImage forState:UIControlStateNormal];
+    
     if (bIsiPad) {
-        self.getAnswersButton.frame = CGRectMake(2*kTileMargin+getAnswersButtonImage.size.width/getAnswersButtonImage.size.height*tileSide1,  kScreenHeight/3*2-tileSide1*3-tileSide1/2-5, getAnswersButtonImage.size.width/getAnswersButtonImage.size.height*tileSide1, getAnswersButtonImage.size.height/getAnswersButtonImage.size.height*tileSide1);
+        self.getAnswersButton.frame = CGRectMake(2*kTileMargin+1.7*image.size.width/image.size.height*tileSide1,  kScreenHeight/3*2-tileSide1*3-tileSide1/2-5,tileSide1, tileSide1);
     }else{
-        self.getAnswersButton.frame = CGRectMake(2*kTileMargin+getAnswersButtonImage.size.width/getAnswersButtonImage.size.height*tileSide1,  kScreenHeight/3*2-tileSide1*5, getAnswersButtonImage.size.width/getAnswersButtonImage.size.height*tileSide1, getAnswersButtonImage.size.height/getAnswersButtonImage.size.height*tileSide1);
+//        self.getAnswersButton.frame = CGRectMake(2*kTileMargin+1.7*image.size.width/image.size.height*tileSide1,  kScreenHeight/3*2-tileSide1*5, getAnswersButtonImage.size.width/getAnswersButtonImage.size.height*tileSide1, getAnswersButtonImage.size.height/getAnswersButtonImage.size.height*tileSide1);
+        self.getAnswersButton.frame = CGRectMake(2*kTileMargin+1.7*image.size.width/image.size.height*tileSide1,  kScreenHeight/3*2-tileSide1*5, tileSide1, tileSide1);
+        
+
+        
     }
-    //self.btnHelp.center=CGPointMake(kTileMargin, kScreenHeight/3*2-tileSide1*3);
-    self.getAnswersButton.alpha = 0.7;
+    //self.btnHelp.frame=
+    self.getAnswersButton.layer.masksToBounds = YES;
+    self.getAnswersButton.layer.cornerRadius = tileSide1/2;
+    self.getAnswersButton.alpha = 1.0;
     
     [self.getAnswersButton addTarget:self action:@selector(getAnswers:) forControlEvents:UIControlEventTouchUpInside];
     [self.gameView addSubview: self.getAnswersButton];
@@ -228,7 +239,7 @@
     
     lifes=3;
     
-    UIImage * lifeImage=[UIImage imageNamed:@"tile"];
+    UIImage * lifeImage=[UIImage imageNamed:@"heart.png"];
     life1=[[UIImageView alloc]initWithFrame:CGRectMake(kTileMargin, 0, lifeImage.size.width/lifeImage.size.height*tileSide1, lifeImage.size.height/lifeImage.size.height*tileSide1)];
      life1.center = CGPointMake(xOffset + 1*(tileSide1 + kTileMargin),tileSide1/2+30);
     [life1 setImage:lifeImage];
@@ -566,13 +577,13 @@
             
             break;
         case 2:
-            life3.image=[UIImage imageNamed:@"btn"];
+            life3.image=[UIImage imageNamed:@"lostHeart.png"];
             break;
         case 1:
-            life2.image=[UIImage imageNamed:@"btn"];
+            life2.image=[UIImage imageNamed:@"lostHeart.png"];
             break;
          case 0:
-            life1.image=[UIImage imageNamed:@"btn"];
+            life1.image=[UIImage imageNamed:@"lostHeart.png"];
             break;
         default:
             break;

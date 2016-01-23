@@ -534,14 +534,14 @@ BOOL isBlurSet = YES;
         {
             backButton = [[UIButton alloc] init];
             [backButton setTitleColor:FlatWhiteDarkColor forState:UIControlStateNormal];
-            [backButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:16.0]];
+            [backButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:30.0]];
             [backButton setBackgroundColor:[UIColor colorWithRed:0.408 green:0.478 blue:0.682 alpha:1] /*#687aae*/];
             [backButton addTarget:self action:@selector(pressAlertButton:) forControlEvents:UIControlEventTouchUpInside];
             [backButton.layer setCornerRadius:6.0];
             [backButton.layer setMasksToBounds:YES];
         }
         [backButton setFrame:CGRectMake(6, popupView.frame.size.height - 48, popupView.frame.size.width/3 - 8, 40)];
-        [backButton setTitle:@"Back" forState:UIControlStateNormal];
+        [backButton setTitle:@"←" forState:UIControlStateNormal];
         
         [popupView addSubview:backButton];
         
@@ -549,7 +549,7 @@ BOOL isBlurSet = YES;
         {
             voiceButton = [[UIButton alloc] init];
             [voiceButton setTitleColor:FlatWhiteDarkColor forState:UIControlStateNormal];
-            [voiceButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:16.0]];
+            [voiceButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:30.0]];
             [voiceButton setBackgroundColor:[UIColor colorWithRed:0.408 green:0.478 blue:0.682 alpha:1] /*#687aae*/];
             [voiceButton addTarget:self action:@selector(pressAlertButton:) forControlEvents:UIControlEventTouchUpInside];
             [voiceButton.layer setCornerRadius:6.0];
@@ -557,7 +557,7 @@ BOOL isBlurSet = YES;
         }
         
         [voiceButton setFrame:CGRectMake(popupView.frame.size.width/3 + 4, popupView.frame.size.height - 48, popupView.frame.size.width/3 - 8, 40)];
-        [voiceButton setTitle:@"Voice" forState:UIControlStateNormal];
+        [voiceButton setTitle:@"🔊" forState:UIControlStateNormal];
         
         [popupView addSubview:voiceButton];
         
@@ -565,14 +565,14 @@ BOOL isBlurSet = YES;
         {
             nextButton = [[UIButton alloc] init];
             [nextButton setTitleColor:FlatWhiteDarkColor forState:UIControlStateNormal];
-            [nextButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:16.0]];
+            [nextButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:30.0]];
             [nextButton setBackgroundColor:[UIColor colorWithRed:0.408 green:0.478 blue:0.682 alpha:1] /*#687aae*/];
             [nextButton addTarget:self action:@selector(pressAlertButton:) forControlEvents:UIControlEventTouchUpInside];
             [nextButton.layer setCornerRadius:6.0];
             [nextButton.layer setMasksToBounds:YES];
         }
         [nextButton setFrame:CGRectMake(popupView.frame.size.width/3*2 + 2, popupView.frame.size.height - 48, popupView.frame.size.width/3 - 8, 40)];
-        [nextButton setTitle:@"next" forState:UIControlStateNormal];
+        [nextButton setTitle:@"→" forState:UIControlStateNormal];
         
         [popupView addSubview:nextButton];
     }
@@ -582,14 +582,14 @@ BOOL isBlurSet = YES;
         {
             backButton = [[UIButton alloc] init];
             [backButton setTitleColor:FlatWhiteDarkColor forState:UIControlStateNormal];
-            [backButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:16.0]];
+            [backButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:30.0]];
             [backButton setBackgroundColor:[UIColor colorWithRed:0.408 green:0.478 blue:0.682 alpha:1] /*#687aae*/];
             [backButton addTarget:self action:@selector(pressAlertButton:) forControlEvents:UIControlEventTouchUpInside];
             [backButton.layer setCornerRadius:6.0];
             [backButton.layer setMasksToBounds:YES];
         }
         [backButton setFrame:CGRectMake(8, popupView.frame.size.height - 48, popupView.frame.size.width/2 - 12, 40)];
-        [backButton setTitle:@"Back" forState:UIControlStateNormal];
+        [backButton setTitle:@"←" forState:UIControlStateNormal];
         
         [popupView addSubview:backButton];
         
@@ -597,14 +597,14 @@ BOOL isBlurSet = YES;
         {
             renewButton = [[UIButton alloc] init];
             [renewButton setTitleColor:FlatWhiteDarkColor forState:UIControlStateNormal];
-            [renewButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:16.0]];
+            [renewButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:30.0]];
             [renewButton setBackgroundColor:[UIColor colorWithRed:0.408 green:0.478 blue:0.682 alpha:1] /*#687aae*/];
             [renewButton addTarget:self action:@selector(pressAlertButton:) forControlEvents:UIControlEventTouchUpInside];
             [renewButton.layer setCornerRadius:6.0];
             [renewButton.layer setMasksToBounds:YES];
         }
         [renewButton setFrame:CGRectMake(popupView.frame.size.width/2 + 4, popupView.frame.size.height - 48, popupView.frame.size.width/2 - 12, 40)];
-        [renewButton setTitle:@"Renew" forState:UIControlStateNormal];
+        [renewButton setTitle:@"↻" forState:UIControlStateNormal];
         
         [popupView addSubview:renewButton];
     }
