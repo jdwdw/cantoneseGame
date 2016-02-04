@@ -25,7 +25,7 @@
 //    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller] ;
 //    navigationController.viewControllers=@[controller ];
 //    self.window.rootViewController = navigationController;
-     [WXApi registerApp:@"wx9b3f6e3350721348"];
+     [WXApi registerApp:@"wx81c52f109779d7c0"];
     
     NSDictionary *dictionary=@{maxIndex: @1,presenceCell:@0};
     [[NSUserDefaults standardUserDefaults]registerDefaults:dictionary];

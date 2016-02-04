@@ -14,9 +14,9 @@
 		<key>explain</key>
 		<string>解释：私人，就是我个人，醒，就是，送的意思，加起来就是我个人给你的。
 
-例子：尼题噶答案我就当我私人醒你噶，后面无感着数噶啦。（这题的答案就当是我个人给你的好处，后面的就没有这么便宜你的东西。）</string>
+例子：尼题噶答案就当系我私人醒你噶，后面就无感着数噶啦。（这题的答案就当是我个人给你的好处，后面的就没有这么便宜你的东西。）</string>
 		<key>voice</key>
-		<string>ding.mp3</string>
+		<string>voice0.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -28,9 +28,9 @@
 		<key>explain</key>
 		<string>解释：食柠檬，吃了柠檬一定酸酸的，受了别人的拒绝应该更加酸吧。
 
-例子：哎，尼次约女仔又吃柠檬了。（哎，这次邀女孩子去玩又被拒绝了。）</string>
+例子：哎，尼次约女仔又吃柠檬。（哎，这次邀女孩子去玩又被拒绝了。）</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice1.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -44,7 +44,7 @@
 
 例子：你下下帮你老细吃死猫，甘落去都唔系办法。(你每次都帮你的老板背黑锅，这样下去也不是长远之计。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice2.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -56,9 +56,9 @@
 		<key>explain</key>
 		<string>解释：以前广东人叫鸭做“弟弟”(现在已经没什么人叫了)，有道菜很家常，叫做“苦瓜炆鸭”，也是一道苦菜，之后也就有了“苦过弟弟”的说法了。
 
-例子：尼锅真系苦过弟弟。(这次真是苦不堪言。)</string>
+例子：尼锅真系苦过弟弟咯。(这次真是苦不堪言。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice3.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -72,7 +72,7 @@
 
 例子：你条粉肠，有种无走！放学门口等！（你这个混蛋，有勇气的话就不要跑，放学门口等。）</string>
 		<key>voice</key>
-		<string>ding.mp3</string>
+		<string>voice4.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -86,7 +86,7 @@
 
 例子：顶，考试唔出猫，实肥佬（肥佬＝＝fail）噶。(卧槽，考试不作弊，一定会不合格的。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice5.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -100,7 +100,7 @@
 
 例子：你唔好霖住砌我生猪肉啊，我后面有人照噶！（你不要想着去冤枉我啊，我有后台罩住我的。）</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice6.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -112,9 +112,9 @@
 		<key>explain</key>
 		<string>解释：托手踭原指当别人伸出求助之手时，却托起他的手肘，其真正意思是明确地拒绝或推搪别人的请求，根本不考虑求助者的情感。
 
-例子：我一世人就系求过你一次,你千祈咪托我手踭。（我这辈子就求你一次,你可千万别推托啊。）</string>
+例子：我一世人就系求过你尼次,你千祈咪托我手踭。（我这辈子就求你这次,你可千万别推托啊。）</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice7.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -126,9 +126,9 @@
 		<key>explain</key>
 		<string>解释：把心给玩创了，当然野咯
 
-例子：放假唔好玩创晒个心啊。(放假不要把心路子给玩野了。)</string>
+例子：死仔，放假唔好玩创晒个心啊。(臭小子放假不要把心路子给玩野了。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice8.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -140,9 +140,9 @@
 		<key>explain</key>
 		<string>解释：在广东话里，“捉虫”整句话应该是“捉虫入屎忽”，屎忽指屁股，这里的“捉虫入屎忽”，意思就是自己把虫子塞屁眼里，自找麻烦，弄巧成拙。
 
-例子：尼锅真系捉虫啦，居然同条女讲系前女友。。。(这次真是自己找麻烦了，跟女友提起了前女友的事情。。。)</string>
+例子：尼锅真系捉虫，居然同条女讲起前女友。。。(这次真是自己找麻烦了，跟女友提起了前女友的事情。。。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice9.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -154,9 +154,9 @@
 		<key>explain</key>
 		<string>解释：“米”则是广东人的主粮食之一，米在以前即财富，把米倒掉了，把贵重的反而倒掉了，延伸指帮倒忙，多作形容词用。
 
-例子：我系都博紧命，你唔好倒米好唔好？(我正在拼命，你不要来帮倒忙行不行啊？)</string>
+例子：我系度博紧命，你唔好倒米好唔好？(我正在拼命，你不要来帮倒忙行不行啊？)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice10.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -170,7 +170,7 @@
 
 例子：碌柒！今次真系唔知点算好！（卧槽，这次真不知到怎么办才好。）</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice11.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -182,9 +182,9 @@
 		<key>explain</key>
 		<string>解释：这个就不解释了。。不让上了。。
 
-例子：阴阳屎忽鬼。&lt;九品芝麻官中周星驰骂那个公公&gt;（就是骂人的话。。不解释了）</string>
+例子：你尼个阴阳屎忽鬼。&lt;九品芝麻官中周星驰骂那个公公&gt;（就是骂人的话。。不解释了）</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice12.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -199,7 +199,7 @@
 
 例子：你条蛋散，好学唔学，学埋晒你老豆点衰野。(你这个不学无术的家伙，有好的不学，把你爸那些不好的东西全学了。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice13.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -214,7 +214,7 @@
 
 例子：你卤味！（一句脏话。(问候别人的妈妈的))</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice14.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -224,11 +224,11 @@
 		<key>tips</key>
 		<string>也读作（乸西）是广州语本字，有轻率、无责任、得过且过的意思。</string>
 		<key>explain</key>
-		<string>解释：俹簁，《广州语本字》“俹簁者，作事苟且而不精细也。”（唔卵系粗口）
+		<string>解释：俹簁，《广州语本字》“俹簁者，作事苟且而不精细也。”,唔卵系粗口来噶。（俹簁，《广州语本字》“俹簁者，作事苟且而不精细也。”,不是脏话。）
 
 例子：你做野可唔可以无感俹簁！（你工作能不能这么得过且过，不靠谱。）</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice15.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -242,7 +242,7 @@
 
 例子：咁快沟到条女，鸠屎啦你。（这么快就泡到妞，了不起啊你。）</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice16.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -254,9 +254,9 @@
 		<key>explain</key>
 		<string>解释：穿着草鞋和草蓑走在野外，草蓑能遮挡风雨帮助隐蔽，草鞋能防滑防声以便奔走。故此，黑道常以“着草”一词形容秘密潜逃。
 
-例子：尼排查的好严，不如我地着草咯。（最近查的非常严格，不如我们离开这里避风头吧。）</string>
+例子：大佬，尼排查的好严，不如我地着草咯。（大哥，最近查的非常严格，不如我们离开这里避风头吧。）</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice17.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -271,7 +271,7 @@
 例子：A：条友话距识林志玲喔。(那个人说他认识林志玲啊。)
          B：收皮啦！我够识啊盖茨咯，距唔识我啊嘛！(别扯蛋了！我也认识盖茨（比尔.盖茨）啊，只是盖茨他不认识我而已。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice18.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -285,7 +285,7 @@
 
 例子：你条死仔借大耳窿，9出13归点还啊！（你个混蛋小子，居然去借高利贷，借9还13的利率，怎么还啊。）</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice19.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -297,9 +297,9 @@
 		<key>explain</key>
 		<string>解释：胆里面都生出沙子啦，能不大吗。。。
 
-例子：沙胆英，系我个场玩野，你都真系够沙胆。（沙胆英，在我的场地里面搞乱，你的胆子还真是足够大。）</string>
+例子：沙胆英，系我个场玩野，你都真系沙胆。（沙胆英，在我的场地里面搞乱，你的胆子还真是足够大。）</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice20.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -313,7 +313,7 @@
 
 例子：唔好再做点咁核突的动作好嘛？（不要再做这么恶心的动作好不好？）</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice21.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -325,9 +325,9 @@
 		<key>explain</key>
 		<string>解释：形容人好像粉葛一样木头木脑，说人呆笨。一种形象，地道的说法，一般常用于偏贬义的语境中，多带责备口吻，和普通话里形容一个人呆笨的用法差不多。
 
-例子：唔好一碌葛咁企喺度喇，过嚟帮帮手好唔好。(不要木头木脑的站在那里啦，过来帮帮忙好不好。)</string>
+例子：唔好一碌葛咁企喺度喇，过嚟帮下手好唔好。(不要木头木脑的站在那里啦，过来帮帮忙好不好。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice22.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -339,9 +339,9 @@
 		<key>explain</key>
 		<string>解释：戆居，又作“戆居居”，在粤语中一般指人目光呆滞，傻乎乎的样子，常用于形容人愚笨。注：“憨居”并非正确写法，“憨”在粤语中并没有“ngong6”的读音，只有“ham1”的读音，所以它不是粤语方言中的“戆居”，但它常被人写错。因此，“戆居”不是表达人憨态可掬、忠厚老实的意思，而是表达傻愣、鲁莽的意思。
 
-例子：小明一个月内俾人呃左三次钱，真喺戆居！(小明一个月内被人骗了三次钱，真是傻瓜。)</string>
+例子：正戆居。（就一傻瓜。）</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice23.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -353,9 +353,9 @@
 		<key>explain</key>
 		<string>解释：清朝的时候，广州有很多比利时来的传教士医生。每当有病人上门求医的时候，就会用法语讲“Malade”（意为病人）。广州人听不懂法语，以为讲的是“男人”的意思，就用了在粤语里和malade发音相近的“麻甩”这个词。因为当时广州人对外国人甚无好感，于是麻甩便有了代指粗鲁男人的蔑视意义。
 
-例子：我警告你呀，你条“麻甩佬”离我远啲(我警告你啊，你这个“麻甩佬”离我远点。)</string>
+例子：我警告你，你条“麻甩佬”离我远啲。(我警告你啊，你这个“麻甩佬”离我远点。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice24.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -369,7 +369,7 @@
 
 例子：细路女唔好一个人出夜街啊，出面好多金鱼佬噶。(小女孩不要独自一人晚上出去玩，外头很多怪叔叔的。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice25.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -381,9 +381,9 @@
 		<key>explain</key>
 		<string>解释：民国时期有本省港流行的故事书《鬼才伦文叙》，署名系衬叔著。该书故事情节多系酒色才气之间斗智输赢的描述。其精妙之处是赢者不但得益、更且令输者不敢声张，自认倒霉。凡看过此书或听过此故事的人，在人情世故上多了一个揾人着数的心眼（或可叫精明、也可叫古惑），而被人罗着数的人将责任归咎于始作俑者--衬叔，衬叔一把年纪，就被尊称为老衬，故将罗人着数者埋堆称为老衬底了。 继而就有坊间口语，比人揾笨者系正老衬，罗人着数者叫揾老衬。
 
-例子：你地唔好虾敏哥了，距就系鳄鱼头，老衬底。(你们不要欺负敏哥了，他就是看起来凶，其实他很善良容易被骗。)</string>
+例子：你地唔好虾敏哥啦，距就正一鳄鱼头，老衬底。(你们不要欺负敏哥了，他就是看起来凶，其实他很善良容易被骗。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice26.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -397,7 +397,7 @@
 
 例子：条友下下抽水，感你都忍到距。(那个人每次都占你便宜，这样你也能容忍到他。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice27.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -409,9 +409,9 @@
 		<key>explain</key>
 		<string>解释：‘打’有和、共、及、加的意思。‘二打六’即‘二和六’ 或 ‘二加六’的意思，二加六合起来是八，不够十。所以说一个人，做事不够十足，所以就说别人‘二打六’了。
 
-例子：我呢的二打六，感笋噶野边轮到我架。（我这种小角色，这种好事哪里会轮到我啊。)</string>
+例子：我呢的二打六，感笋噶野边轮到我啊。（我这种小角色，这种好事哪里会轮到我啊。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice28.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -425,7 +425,7 @@
 
 例子：你条咸湿佬，又去装人冲凉。(你这个好色的家伙，又去偷窥别人洗澡。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice29.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -439,7 +439,7 @@
 
 例子：知你威啦，唔好系度晒命好唔好。(知道你威风，不要在这炫耀好不好。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice30.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -453,7 +453,7 @@
 
 例子：你睇距个衰样，我真系冇眼睇咯。(你看看他那样子多么的衰，我真的看不下去了。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice31.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -467,7 +467,7 @@
 
 例子：个衰仔成支顶心杉感顶系度。(那个臭小子就像心上的一个木杉一样，处处跟我作对。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice32.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -481,7 +481,7 @@
 
 例子：你正一箩底橙，拿出去都冇人候。(你就是一箩底的橙子，拿出去也没用人问候。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice33.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -495,7 +495,7 @@
 
 例子：嗰女咁大仲唔嫁，唔通留番来摄灶罅咩。(女儿这么大了还不出嫁，难道留下来塞灶头缝隙吗？)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice34.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -509,11 +509,11 @@
 
 例子：你个百厌星唔好玩啦。(你这个顽皮的孩子不要再玩啦。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice35.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
-		<string>懵到上心口傻到上脑子憨的没朋友</string>
+		<string>傻到上脑子憨的没朋友懵到上心口</string>
 		<key>answer</key>
 		<string>懵到上心口</string>
 		<key>tips</key>
@@ -523,7 +523,7 @@
 
 例子：你又比你前任厄，你真系懵到上心口。（你又被你的前任给骗了，真的迷糊到一定的境界了。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice36.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -537,7 +537,7 @@
 
 例子：唔好理距啦，条友正茂利来噶。(不要理他了，那个人就是一个傻子。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice37.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -551,7 +551,7 @@
 
 例子：晚晚去游干水闷唔闷噶你地，今晚不如真系去游水咯。(每天晚上去打麻雀你们不觉得闷吗，不如今天晚上我们真的去游游吧。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice38.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -565,7 +565,7 @@
 
 例子：今晚又加班？阴公咯！(今晚又要加班？真惨啊！)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice39.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -579,7 +579,7 @@
 
 例子：得闲出去吃个宵夜，吹下水。(有空出去吃宵夜聊聊天。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice40.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -593,7 +593,7 @@
 
 例子：尼锅舐嘢啦。(这次惹到大麻烦啦。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice41.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -605,9 +605,9 @@
 		<key>explain</key>
 		<string>解释：鬼口说出来的话当然不好听啦。
 
-例子：唔好日日鬼赖口。(不要每天都张口就是晦气话。)</string>
+例子：唔好日日鬼赖口，好嘛？(不要每天都张口就是晦气话，好吗？)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice42.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -619,9 +619,9 @@
 		<key>explain</key>
 		<string>解释：掘擂捶。。。看字解释就可以知道多硬。。简直无情。
 
-例子：你讲野唔好掘擂捶啦，好难顶噶。(你说话语气不要这么硬，好来忍受的。)</string>
+例子：你讲野唔好下下掘擂捶，好难顶噶。(你说话语气不要每次都这么硬，好来忍受的。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice43.m4a</string>
 	</dict>
 	<dict>
 		<key>question</key>
@@ -635,7 +635,7 @@
 
 例子：要好好做人，唔好做老泥妹。(要好好的做人，不要成为流浪街头的女孩子。)</string>
 		<key>voice</key>
-		<string>win.mp3</string>
+		<string>voice44.m4a</string>
 	</dict>
 </array>
 </plist>

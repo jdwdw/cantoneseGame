@@ -79,7 +79,7 @@
     
     //GADInterstitial *interstitial;
     NSArray *activity;
-    
+    UIView* gameLayer;
 }
 @property (strong, nonatomic) GameController* controller;
 @property (strong,nonatomic) GADInterstitial *interstitial;
@@ -105,7 +105,7 @@
 
  activity = @[[[WeixinSessionActivity alloc] init], [[WeixinTimelineActivity alloc] init]];
     
-    NSArray *imageList = @[[UIImage imageNamed:@"shareButtonImage.png"], [UIImage imageNamed:@"borderButtonImage.png"], [UIImage imageNamed:@"menuClose.png"], [UIImage imageNamed:@"menuClose.png"]];
+    NSArray *imageList = @[[UIImage imageNamed:@"backButtonImage.png"],[UIImage imageNamed:@"shareButtonImage.png"],  [UIImage imageNamed:@"menuClose.png"]];
     sideBar = [[CDSideBarController alloc] initWithImages:imageList];
     sideBar.delegate = self;
     
@@ -131,11 +131,11 @@
      self.view.backgroundColor=[UIColor whiteColor];
     
     //add one layer for all game elements
-    UIView* gameLayer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+   // UIView* gameLayer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     
-
-    NSString *backgroundImageName=[NSString stringWithFormat:@"background%d.png",arc4random()%11 ];
-   // NSString *backgroundImageName=[NSString stringWithFormat:@"background11.png" ];
+     gameLayer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+    NSString *backgroundImageName=[NSString stringWithFormat:@"background%d.png",arc4random()%13 ];
+    //NSString *backgroundImageName=[NSString stringWithFormat:@"background13.png" ];
     
     UIColor *bgColor = [UIColor colorWithPatternImage: [UIImage imageNamed:backgroundImageName]];
     //[self.view setBackgroundColor:bgColor];
@@ -199,6 +199,11 @@
     [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 70, 50)];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [sideBar remove];
+}
 #pragma mark - Game manu
 //show the level selector menu
 //-(void)showLevelMenu
@@ -230,6 +235,13 @@
 //}
 
 -(void)showLevel{
+    
+    NSString *backgroundImageName=[NSString stringWithFormat:@"background%d.png",arc4random()%13 ];
+    //NSString *backgroundImageName=[NSString stringWithFormat:@"background13.png" ];
+    
+    UIColor *bgColor = [UIColor colorWithPatternImage: [UIImage imageNamed:backgroundImageName]];
+    //[self.view setBackgroundColor:bgColor];
+    gameLayer.backgroundColor=bgColor;
     self.controller.level = [Level level];
     [self.controller dealWithNum:self.index];
     
@@ -246,11 +258,19 @@
     //[interstitial loadRequest:[GADRequest request]];
    // [interstitial presentFromRootViewController:self];
 }
--(void)backTo:(UIButton*)sender{
+-(void)backTo{
     [self.navigationController popToRootViewControllerAnimated:YES];
     NSLog(@"back");
 }
 -(void)showNextLevel{
+    
+    
+    NSString *backgroundImageName=[NSString stringWithFormat:@"background%d.png",arc4random()%13 ];
+    //NSString *backgroundImageName=[NSString stringWithFormat:@"background13.png" ];
+    
+    UIColor *bgColor = [UIColor colorWithPatternImage: [UIImage imageNamed:backgroundImageName]];
+    //[self.view setBackgroundColor:bgColor];
+    gameLayer.backgroundColor=bgColor;
     
     self.index+=1;
     self.controller.level = [Level level];
@@ -314,7 +334,7 @@
     [popper setRoundedCorners:YES];
     [popper showPopup];
     //加广告
-    if ( arc4random()%2==1) {
+    if ( arc4random()%6==1) {
         [self loadAD];
     }
     
@@ -457,6 +477,7 @@
         //2 load the file contents
         NSError* loadError = nil;
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error: &loadError];
+        player.volume=5;
         NSAssert(loadError==nil, @"load sound failed");
         
         //3 prepare the play
@@ -476,7 +497,10 @@
     if (player.isPlaying) {
         player.currentTime = 0;
     } else {
+       // [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
         [player play];
+        //sleep(2);
+  
     }
 }
 
@@ -494,15 +518,17 @@
     switch (index) {
         case 0:
             NSLog(@"0");
-            [self weChatShare];
-            [self becomeFirstResponder];
+            [self backTo];
+
             break;
         case 1:
             NSLog(@"1");
             //            CGFloat score=[[NSUserDefaults standardUserDefaults] integerForKey:@"Score"];
             //            NSLog(@"%f",score);
             //[self showLeaderboard];
-            NSLog(@"Leaderboard");
+            //NSLog(@"Leaderboard");
+            [self weChatShare];
+            [self becomeFirstResponder];
             break;
         case 2:
             NSLog(@"2");
@@ -525,9 +551,13 @@
 
 
 -(void)weChatShare{
-    NSString *tile = @"tile";
-    NSString *theUrl = @"https://itunes.apple.com/us/app/id1052713120?mt=8";
-    UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[tile, [UIImage imageNamed:@"background0.png"], [NSURL URLWithString:theUrl]] applicationActivities:activity];
+//    NSString *tile = @"tile";
+//    NSString *theUrl = @"https://itunes.apple.com/cn/app/id1078005986?mt=8";
+//    UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[tile, [UIImage imageNamed:@"background0.png"], [NSURL URLWithString:theUrl]] applicationActivities:activity];
+    
+    NSString *tile = NSLocalizedString(@"tile",@"");
+    NSString *theUrl = NSLocalizedString(@"theUrl",@"");
+    UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[tile, [UIImage imageNamed:@"shareIcon.png"], [NSURL URLWithString:theUrl]] applicationActivities:activity];
     activityView.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint];
     //[self presentViewController:activityView animated:YES completion:nil];
     

@@ -61,6 +61,9 @@
     _backgroundMenuView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5f];
     [view addSubview:_backgroundMenuView];
 }
+-(void)remove{
+    [_menuButton removeFromSuperview];
+}
 
 #pragma mark - 
 #pragma mark Menu button action

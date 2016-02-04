@@ -45,6 +45,7 @@
 {
     _title = title;
     self.titleLabel.text = self.title;
+    self.titleLabel.font=[UIFont fontWithName:@"AmericanTypewriter-Bold" size:kScreenHeight/45 ];
     [self setNeedsLayout];
 }
 
@@ -60,6 +61,7 @@
 {
     _desc = desc;
     self.descLabel.text = self.desc;
+    self.descLabel.font=[UIFont fontWithName:@"AmericanTypewriter-Bold" size:kScreenHeight/50 ];
     [self setNeedsLayout];
 }
 

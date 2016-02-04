@@ -12,6 +12,8 @@
 
 static NSString * const sampleDesc1 = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt laoreet diam, id suscipit ipsum sagittis a. ";
 
+
+
 static NSString * const sampleDesc2 = @" Suspendisse et ultricies sem. Morbi libero dolor, dictum eget aliquam quis, blandit accumsan neque. Vivamus lacus justo, viverra non dolor nec, lobortis luctus risus.";
 
 static NSString * const sampleDesc3 = @"In interdum scelerisque sem a convallis. Quisque vehicula a mi eu egestas. Nam semper sagittis augue, in convallis metus";
@@ -64,14 +66,20 @@ static NSString * const sampleDesc5 = @"Sed rhoncus arcu nisl, in ultrices mi eg
     _ghView = [[GHWalkThroughView alloc] initWithFrame:self.view.bounds];
     [_ghView setDataSource:self];
     [_ghView setWalkThroughDirection:GHWalkThroughViewDirectionVertical];
-    UILabel* welcomeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 50)];
+    UILabel* welcomeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight/15)];
     welcomeLabel.text = @"Welcome";
-    welcomeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40];
+    welcomeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:kScreenHeight/15];
     welcomeLabel.textColor = [UIColor whiteColor];
     welcomeLabel.textAlignment = NSTextAlignmentCenter;
     self.welcomeLabel = welcomeLabel;
     
-    self.descStrings = [NSArray arrayWithObjects:sampleDesc1,sampleDesc2, sampleDesc3, sampleDesc4, sampleDesc5, nil];
+    NSString *tip1= NSLocalizedString(@"tip1",@"");
+    NSString *tip2= NSLocalizedString(@"tip2",@"");
+    NSString *tip3= NSLocalizedString(@"tip3",@"");
+    NSString *tip4= NSLocalizedString(@"tip4",@"");
+    NSString *tip5= NSLocalizedString(@"tip5",@"");
+    
+    self.descStrings = [NSArray arrayWithObjects:tip1,tip2, tip3, tip4, tip5, nil];
     
     
     
@@ -108,7 +116,7 @@ static NSString * const sampleDesc5 = @"Sed rhoncus arcu nisl, in ultrices mi eg
 
 - (void) configurePage:(GHWalkThroughPageCell *)cell atIndex:(NSInteger)index
 {
-    cell.title = [NSString stringWithFormat:@"This is page %ld", index+1];
+    cell.title = [NSString stringWithFormat:@"Tip %ld", index+1];
     cell.titleImage = [UIImage imageNamed:[NSString stringWithFormat:@"title%ld", index+1]];
     cell.desc = [self.descStrings objectAtIndex:index];
     
