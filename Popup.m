@@ -390,6 +390,7 @@ BOOL isBlurSet = YES;
         
         [popupView addSubview:subTitleLabel];
     }
+    subTitleLabel.editable=NO;
 }
 
 - (void)setupTextFields {
@@ -1511,4 +1512,18 @@ BOOL isBlurSet = YES;
     }
 }
 
+
+//点击return 按钮 去掉
+//-(void)textFieldDidEndEditing:(UITextView *)textField
+//{
+//        [textField resignFirstResponder];
+//    NSLog(@"aaaaaaaaaa");
+//      
+//}
+//点击屏幕空白处去掉键盘
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//        [subTitleLabel resignFirstResponder];
+//    NSLog(@"gfdgdsfgggggggggg");
+//}
 @end
